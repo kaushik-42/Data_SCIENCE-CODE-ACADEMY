@@ -1,0 +1,126 @@
+A database is a set of data stored in a computer. This data is usually structured into tables. Tables can grow large and have a multitude of columns and records.
+
+Spreadsheets, like Microsoft Excel and Google Sheets, allow you to view and manipulate data directly: with selecting, filtering, sorting, etc. By applying a number of these operations you can obtain the subset of data you are seeking.
+
+SQL (pronounced “S-Q-L” or “sequel”) allows you to write queries which define the subset of data you are seeking. Unlike Excel and Sheets, your computer and SQL will handle how to get the data; you can focus on what data you would like. You can save these queries, refine them, share them, and run them on different databases.
+
+It is a great way to access data and a great entry point to programming because its syntax (the specific vocabulary that gives instructions to the computer) is very human-readable. Without knowing any SQL, you might still be able to guess what each command will do.
+
+Why python?
+After interacting with the database, it is time to analyze the data further and eventually visualize the data. And SQL cannot get us there.
+
+Python is a general-purpose programming language. It can do almost all of what other languages can do with comparable, or faster, speed. It is often chosen by Data Analysts and Data Scientists for prototyping, visualization, and execution of data analyses on datasets.
+
+
+Machine Learning?
+Machine Learning is the science of getting computers to learn and act like humans do, and improve their learning over time in autonomous fashion, by feeding them data and information in the form of observations and real-world interactions. It has taken the Data Science world by storm.
+
+It can be branched out into the following categories:
+
+Supervised Learning
+Unsupervised Learning
+Supervised Learning is when the data is labeled and the program learns to predict the output from the input data. For instance, a supervised learning algorithm for credit card fraud detection would take as input a set of recorded transactions. It would learn what makes a transaction likely to be fraudulent. Then, for each new transaction, the program would predict if it is fraudulent or not.
+
+Unsupervised Learning is where the data is unlabeled and the program learns to recognize the inherent structure of the input data. For the same fraud example, the model would take in a bunch of transactions with no indication of if they are fraudulent or not, and it would group them based on patterns it sees. It might discover two groups, fraudulent and legitimate.
+
+What is a Database?
+A database is a set of data stored in a computer. This data is usually structured in a way that makes the data easily accessible.
+
+What is a Relational Database?
+A relational database is a type of database. It uses a structure that allows us to identify and access data in relation to another piece of data in the database. Often, data in a relational database is organized into tables.
+
+Tables: Rows and Columns
+Tables can have hundreds, thousands, sometimes even millions of rows of data. These rows are often called records.
+
+Tables can also have many columns of data. Columns are labeled with a descriptive name (say, age for example) and have a specific data type.
+
+For example, a column called age may have a type of INTEGER (denoting the type of data it is meant to hold).
+What is a Relational Database Management System (RDBMS)?
+A relational database management system (RDBMS) is a program that allows you to create, update, and administer a relational database. Most relational database management systems use the SQL language to access the database.
+
+What is SQL?
+SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system. SQL syntax is similar to the English language, which makes it relatively easy to write, read, and interpret.
+
+Many RDBMSs use SQL (and variations of SQL) to access the data in tables. For example, SQLite is a relational database management system. SQLite contains a minimal set of SQL commands (which are the same across all RDBMSs). Other RDBMSs may use other variants.
+
+(SQL is often pronounced in one of two ways. You can pronounce it by speaking each letter individually like “S-Q-L”, or pronounce it using the word “sequel”.)
+
+Popular Relational Database Management Systems
+SQL syntax may differ slightly depending on which RDBMS you are using. Here is a brief description of popular RDBMSs:
+
+MySQL
+
+MySQL is the most popular open source SQL database. It is typically used for web application development, and often accessed using PHP.
+
+The main advantages of MySQL are that it is easy to use, inexpensive, reliable (has been around since 1995), and has a large community of developers who can help answer questions.
+
+Some of the disadvantages are that it has been known to suffer from poor performance when scaling, open source development has lagged since Oracle has taken control of MySQL, and it does not include some advanced features that developers may be used to.
+
+PostgreSQL
+
+PostgreSQL is an open source SQL database that is not controlled by any corporation. It is typically used for web application development.
+
+PostgreSQL shares many of the same advantages of MySQL. It is easy to use, inexpensive, reliable and has a large community of developers. It also provides some additional features such as foreign key support without requiring complex configuration.
+
+The main disadvantage of PostgreSQL is that it is slower in performance than other databases such as MySQL. It is also less popular than MySQL which makes it harder to come by hosts or service providers that offer managed PostgreSQL instances.
+
+Oracle DB
+
+Oracle Corporation owns Oracle Database, and the code is not open sourced.
+
+Oracle DB is for large applications, particularly in the banking industry. Most of the world’s top banks run Oracle applications because Oracle offers a powerful combination of technology and comprehensive, pre-integrated business applications, including essential functionality built specifically for banks.
+
+The main disadvantage of using Oracle is that it is not free to use like its open source competitors and can be quite expensive.
+
+SQL Server
+
+Microsoft owns SQL Server. Like Oracle DB, the code is close sourced.
+
+Large enterprise applications mostly use SQL Server.
+
+Microsoft offers a free entry-level version called Express but can become very expensive as you scale your application.
+
+SQLite
+
+SQLite is a popular open source SQL database. It can store an entire database in a single file. One of the most significant advantages this provides is that all of the data can be stored locally without having to connect your database to a server.
+
+SQLite is a popular choice for databases in cellphones, PDAs, MP3 players, set-top boxes, and other electronic gadgets. The SQL courses on Codecademy use SQLite.
+
+For more info on SQLite, including installation instructions, read this article.
+
+
+Conclusion
+Relational databases store data in tables. Tables can grow large and have a multitude of columns and records. Relational database management systems (RDBMSs) use SQL (and variants of SQL) to manage the data in these large tables. The RDBMS you use is your choice and depends on the complexity of your application.
+
+**GROUP BY
+
+GROUP BY is a clause in SQL that is used with aggregate functions. It is used in collaboration with the SELECT statement to arrange identical data into groups.
+
+The GROUP BY statement comes after any WHERE statements, but before ORDER BY or LIMIT.
+AGGREGATE FUNCTIONS
+Having
+In addition to being able to group data using GROUP BY, SQL also allows you to filter which groups to include and which to exclude.
+
+For instance, imagine that we want to see how many movies of different genres were produced each year, but we only care about years and genres with at least 10 movies.
+
+We can’t use WHERE here because we don’t want to filter the rows; we want to filter groups.
+
+This is where HAVING comes in.
+
+HAVING is very similar to WHERE. In fact, all types of WHERE clauses you learned about thus far can be used with HAVING.
+***CHEAT SHEET:::
+AGGREGATE FUNCTIONS
+Review
+Congratulations!
+
+You just learned how to use aggregate functions to perform calculations on your data. What can we generalize so far?
+
+COUNT(): count the number of rows
+SUM(): the sum of the values in a column
+MAX()/MIN(): the largest/smallest value
+AVG(): the average of the values in a column
+ROUND(): round the values in the column
+Aggregate functions combine multiple rows together to form a single value of more meaningful information.
+
+GROUP BY is a clause used with aggregate functions to combine data from one or more columns.
+HAVING limit the results of a query based on an aggregate property.
