@@ -54,6 +54,6 @@ some_hazardous_graph = {
   }
 print(bfs(the_most_dangerous_graph, "crocodiles", "bees"))
 
-OUTPUT: ['crocodiles', 'lasers', 'sharks', 'lava', 'piranhas', 'bees']	
+OUTPUT: ['crocodiles', 'lasers', 'sharks', 'bees']
 	
 	
