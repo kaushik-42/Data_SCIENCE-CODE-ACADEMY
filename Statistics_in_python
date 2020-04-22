@@ -1,0 +1,76 @@
+#Variance and Standard Deviation:
+import numpy as np
+import matplotlib.pyplot as plt
+import codecademylib3_seaborn
+
+teacher_one_grades = [83.42, 88.04, 82.12, 85.02, 82.52, 87.47, 84.69, 85.18, 86.29, 85.53, 81.29, 82.54, 83.47, 83.91, 86.83, 88.5, 84.95, 83.79, 84.74, 84.03, 87.62, 81.15, 83.45, 80.24, 82.76, 83.98, 84.95, 83.37, 84.89, 87.29]
+teacher_two_grades = [85.15, 95.64, 84.73, 71.46, 95.99, 81.61, 86.55, 79.81, 77.06, 92.86, 83.67, 73.63, 90.12, 80.64, 78.46, 76.86, 104.4, 88.53, 74.62, 91.27, 76.53, 94.37, 84.74, 81.84, 97.69, 70.77, 84.44, 88.06, 91.62, 65.82]
+
+print("Teacher One mean: " + str(np.mean(teacher_one_grades)))
+print("Teacher Two mean: " + str(np.mean(teacher_two_grades)))
+
+plt.subplot(211)
+plt.title("Teacher One Grades")
+plt.xlabel("Grades")
+plt.hist(teacher_one_grades)
+plt.xlim(65, 105)
+
+
+plt.subplot(212)
+plt.title("Teacher Two Grades")
+plt.xlabel("Grades")
+plt.hist(teacher_two_grades, bins = 20)
+plt.xlim(65, 105)
+
+plt.tight_layout()
+plt.show()
+""Variance is a descriptive statistic that describes how spread out the points in a data set are.
+Average Distances.
+-->WE HAVE TO TAKE LOW VARIANCE THAN HIGH VARIANCE
+We now have five different values that describe how far away each point is from the mean. 
+That seems to be a good start in describing the spread of the data.
+But the whole point of calculating variance was to get one number that describes the dataset. 
+We don’t want to report five values — we want to combine those into one descriptive statistic."""
+"""Square The Differences
+We’re almost there! We have one small problem with our equation. Consider this very small dataset:
+
+[-5, 5]
+The mean of this dataset is 0, so when we find the difference between each point and the mean we get -5 - 0 = -5 and 5 - 0 = 5.
+
+When we take the average of -5 and 5 to get the variance, we get 0!
+
+Now think about what would happen if the dataset were [-200, 200]. We’d get the same result! That can’t possibly be right — the dataset with 200 is much more spread out than the dataset with 5, so the variance should be much larger!
+
+The problem here is with negative numbers. Because one of our data points was 5 units below the mean and the other was 5 units above the mean, they canceled each other out!
+
+When calculating variance, we don’t care if a data point was above or below the mean — all we care about is how far away it was. To get rid of those pesky negative numbers, we’ll square the difference between each data point and the mean.
+
+Our equation for finding the difference between a data point and the mean now looks like this:
+
+difference
+=
+(X−μ)
+difference=(X−μ)**2
+ 
+"""
+"""VARIANCE
+Variance In NumPy
+Well done! You’ve calculated the variance of a data set. The full equation for the variance is as follows:
+
+σ**2=∑i=1 to N(X i-μ)**2/N
+
+Let’s dissect this equation a bit.
+
+Variance is usually represented by the symbol sigma squared.
+We start by taking every point in the dataset — from point number 1 to point number N — and finding the difference between that point and the mean.
+Next, we square each difference to make all differences positive.
+Finally, we average those squared differences by adding them together and dividing by N, the total number of points in the dataset.
+All of this work can be done quickly using Python’s NumPy library.
+The var() function takes a list of numbers as a parameter and returns the variance of that dataset."""
+import numpy as np
+
+dataset = [3, 5, -2, 49, 10]
+variance = np.var(dataset)
+"""Variance is useful because it is a measure of spread. 
+While we might get a general understanding of the spread by looking at a histogram,
+computing the variance gives us a numerical value that helps us describe the level of confidence of our comparison."""
