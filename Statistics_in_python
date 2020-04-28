@@ -74,3 +74,104 @@ variance = np.var(dataset)
 """Variance is useful because it is a measure of spread. 
 While we might get a general understanding of the spread by looking at a histogram,
 computing the variance gives us a numerical value that helps us describe the level of confidence of our comparison."""
+
+
+Standard Deviation
+Variance is a tricky statistic to use because its units are different from both the mean and the data itself. For example, the mean of our NBA dataset is 77.98 inches. Because of this, we can say someone who is 80 inches tall is about two inches taller than the average NBA player.
+
+However, because the formula for variance includes squaring the difference between the data and the mean, the variance is measured in units squared. This means that the variance for our NBA dataset is 13.32 inches squared.
+
+This result is hard to interpret in context with the mean or the data because their units are different. This is where the statistic standard deviation is useful.
+
+Standard deviation is computed by taking the square root of the variance. sigma is the symbol commonly used for standard deviation. Conveniently, sigma squared is the symbol commonly used for variance:
+
+\sigma = \sqrt{\sigma^2} = \sqrt{\frac{\sum_{i=1}^{N}{(X_i -\mu)^2}}{N}}σ= 
+σ 
+2
+ 
+​	 = 
+N
+∑ 
+i=1
+N
+​	 (X 
+i
+​	 −μ) 
+2
+ 
+​	 
+​	 
+In Python, you can take the square root of a number using ** 0.5:
+
+num = 25
+num_square_root = num ** 0.5
+
+
+By using np.std() we don’t need to take that middle step anymore.
+STANDARD DEVIATION
+Using Standard Deviation
+Now that we’re able to compute the standard deviation of a dataset, what can we do with it?
+
+Now that our units match, our measure of spread is easier to interpret. By finding the number of standard deviations a data point is away from the mean, we can begin to investigate how unusual that datapoint truly is. In fact, you can usually expect around 68% of your data to fall within one standard deviation of the mean, 95% of your data to fall within two standard deviations of the mean, and 99.7% of your data to fall within three standard deviations of the mean.
+
+A histogram showing where the standard deviations fallIf you have a data point that is over three standard deviations away from the mean, that's an incredibly unusual piece of data!
+import codecademylib3_seaborn
+import matplotlib.pyplot as plt
+import numpy as np
+from data import nba_data, okcupid_data
+
+nba_mean = np.mean(nba_data)
+okcupid_mean = np.mean(okcupid_data)
+
+#Change this variable to your height (in inches)!
+your_height = 0
+
+nba_standard_deviation = np.std(nba_data)
+okcupid_standard_deviation = np.std(okcupid_data)
+
+plt.subplot(211)
+plt.title("NBA Player Heights")
+plt.xlabel("Height (inches)")
+
+plt.hist(nba_data)
+
+plt.axvline(nba_mean, color='#FD4E40', linestyle='solid', linewidth=2, label = "Mean")
+
+plt.axvline(nba_mean + nba_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2, label = "Standard Deviations")
+plt.axvline(nba_mean - nba_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(nba_mean + nba_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean - nba_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(nba_mean + nba_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(nba_mean - nba_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(your_height, color='#62EDBF', linestyle='solid', linewidth=2, label = "You")
+
+plt.xlim(55, 90)
+plt.legend()
+
+
+plt.subplot(212)
+plt.title("OkCupid Profile Heights")
+plt.xlabel("Height (inches)")
+
+plt.hist(okcupid_data)
+
+plt.axvline(okcupid_mean, color='#FD4E40', linestyle='solid', linewidth=2, label = "Mean")
+
+plt.axvline(okcupid_mean + okcupid_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2, label = "Standard Deviations")
+plt.axvline(okcupid_mean - okcupid_standard_deviation, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(okcupid_mean + okcupid_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean - okcupid_standard_deviation * 2, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(okcupid_mean + okcupid_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+plt.axvline(okcupid_mean - okcupid_standard_deviation * 3, color='#FFB908', linestyle='solid', linewidth=2)
+
+plt.axvline(your_height, color='#62EDBF', linestyle='solid', linewidth=2, label = "You")
+
+plt.xlim(55, 90)
+plt.legend()
+plt.tight_layout()
+plt.show()
